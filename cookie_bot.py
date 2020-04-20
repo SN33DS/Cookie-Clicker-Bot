@@ -52,12 +52,13 @@ class Cookie_Clicker_Bot:
                     except NoSuchElementException:
                         pass
             
+            try: # Should click on the golden cookie if it is on screen
+                self.driver.find_element_by_xpath('//*[@id="shimmers"]').click()
+            except ElementNotInteractableException:
+                pass
 
             for _ in range(buys): # Finally it loops throught all buyable items 'buys' amount of time
-                self.driver.find_element_by_xpath('//*[@id="product0"]').click()
-                self.driver.find_element_by_xpath('//*[@id="product1"]').click()
-                
-                for n in range(2, MAX_OPTIONS):
+                for n in range(MAX_OPTIONS):
                     try:
                         self.driver.find_element_by_xpath(f'//*[@id="product{n}"]').click()
                     except ElementNotInteractableException:
@@ -65,8 +66,8 @@ class Cookie_Clicker_Bot:
             
 			# Also adds a few units to buys and cookies cause you will get more cookies over time        
             buys += 5
-            # print(buys)
+            print(buys)
             cookies += 50
-            # print(cookies)
+            print(cookies)
 
 bot = Cookie_Clicker_Bot()
