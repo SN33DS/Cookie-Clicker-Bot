@@ -65,8 +65,8 @@ class Cookie_Clicker_Bot:
             
 			# Also adds a few units to buys and cookies cause you will get more cookies over time        
             buys += 5
-            print(buys)
+            # print(buys)
             cookies += 50
-            print(cookies)
+            # print(cookies)
 
 bot = Cookie_Clicker_Bot()
