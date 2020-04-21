@@ -68,7 +68,7 @@ class Cookie_Clicker_Bot:
         
         reset.move_to_element_with_offset(body ,0, 0)
         reset.perform()
-        action.move_by_offset(493, 305).click()
+        action.move_by_offset(493, 305).click() # might need to change these numbers, just run once with the above uncommented to know what to put in.
         action.perform()
 
         sleep(1)
@@ -114,7 +114,7 @@ class Cookie_Clicker_Bot:
 
             for c in range(cookies): # Starts by clicking the cookie 'cookies' amount of time
                 self.driver.find_element_by_id('bigCookie').click()
-                if c % 50 == 0:
+                if c % 50 == 0: # Checks for golden cokkie every so often
                     self.golden_cookie()
             
             self.golden_cookie()
@@ -134,9 +134,8 @@ class Cookie_Clicker_Bot:
                         self.driver.find_element_by_xpath(f'//*[@id="product{n}"]').click()
                     except ElementNotInteractableException:
                         pass
-            
-			# Also adds a few units to cookies cause you will need more cookies over time        
-            cookies += 5
+                   
+            cookies += 5 # Also adds a few units to cookies cause you will need more cookies over time
             self.save_game()
 
 bot = Cookie_Clicker_Bot()
