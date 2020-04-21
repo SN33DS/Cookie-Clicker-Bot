@@ -83,6 +83,8 @@ class Cookie_Clicker_Bot:
         sleep(5)
         self.driver.find_element_by_xpath('//*[@id="menu"]/div[1]').click()
 
+        print('Game saved !')
+
     
     def golden_cookie(self):
         try: # Should click on the golden cookie if it is on screen
@@ -104,14 +106,15 @@ class Cookie_Clicker_Bot:
 
     def game(self):
 	# This is the 'game' loop
-        cookies = 500
+        cookies = 350
         buys = 15
         for i in range(LOOPS): # Loop throught 'LOOPS' amount of time
+            print(f'Currently on loop {i}')
             self.golden_cookie()
 
             for c in range(cookies): # Starts by clicking the cookie 'cookies' amount of time
                 self.driver.find_element_by_id('bigCookie').click()
-                if c % 55 == 0:
+                if c % 50 == 0:
                     self.golden_cookie()
             
             self.golden_cookie()
@@ -132,9 +135,8 @@ class Cookie_Clicker_Bot:
                     except ElementNotInteractableException:
                         pass
             
-            self.save_game()
 			# Also adds a few units to cookies cause you will need more cookies over time        
             cookies += 5
-            print(i)
+            self.save_game()
 
 bot = Cookie_Clicker_Bot()
